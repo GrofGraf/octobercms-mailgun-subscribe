@@ -1,0 +1,40 @@
+tabs:
+  fields:
+    maillist_title:
+      label: 'Maillist Title'
+      comment: 'A title of mailing list for subscription'
+      type: text
+      default: maillist
+      tab: General
+    confirmation_text:
+      label: 'Confirmation Text'
+      comment: 'Confirmation Text after successful subscription'
+      type: richeditor
+      default: "You successfully subscribed to our maillist."
+      tab: General
+    mailgun_configuration:
+      label: Same as default mail configuration
+      comment: Is default mail configuration set to Mailgun?
+      type: switch
+      default: 1
+      tab: Mailgun
+    mailgun_domain:
+      label: 'Mailgun Domain'
+      comment: 'Mailgun Domain Name (example: example.mailgun.com)'
+      type: text
+      tab: Mailgun
+      disabled: true
+      trigger:
+        action: disable
+        field: mailgun_configuration
+        condition: checked
+    api_key:
+      label: 'Mailgun Api Key'
+      comment: 'Mailgun API KEY (example: key-2419421example1c22vc2c2)'
+      type: text
+      tab: Mailgun
+      disabled: true
+      trigger:
+        action: disable
+        field: mailgun_configuration
+        condition: checked

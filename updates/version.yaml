@@ -1,0 +1,5 @@
+1.0.1: First version of MailgunSubscribe
+1.0.2:
+  - Default values
+  - Settings divided into categories
+  - Use default mailgun configuration if exists

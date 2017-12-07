@@ -1,0 +1,13 @@
+<div class="confirm-subscribe-container">
+</div>
+<form class="subscribe-form" data-request="{{ __SELF__ }}::onSubscribe" data-request-update="'{{ __SELF__ }}::confirm': '.confirm-subscribe-container'">
+  <div class="input-group">
+    <input type="text" name="email" class="form-control" placeholder="EMAIL">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit">
+        <span class="sr-only">Subscribe</span>
+        <span class="glyphicon glyphicon-envelope"></span>
+      </button>
+    </span>
+  </div>
+</form>
