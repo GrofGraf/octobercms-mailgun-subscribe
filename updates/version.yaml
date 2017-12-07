@@ -3,3 +3,5 @@
   - Default values
   - Settings divided into categories
   - Use default mailgun configuration if exists
+1.0.3:
+  - onSubscribe method divided

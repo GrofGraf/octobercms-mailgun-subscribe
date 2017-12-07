@@ -59,6 +59,16 @@ class SubscribeForm extends ComponentBase
     ];
 
     public function onSubscribe(){
+      $validator = Validator::make(post(), $this->formValidationRules);
+      if ($validator->fails()) {
+        throw new ValidationException($validator);
+      }
+      $this->subscribe(post('email'));
+      $this->page["confirmation_text"] = Settings::instance()->confirmation_text ?: "You successfully subscribed to our maillist.";
+      return;
+    }
+
+    public function subscribe($post_email){
       if(Settings::get('mailgun_configuration')){
         $mailgun_domain = MailSetting::get('mailgun_domain');
         $api_key = MailSetting::get('mailgun_secret');
@@ -66,20 +76,13 @@ class SubscribeForm extends ComponentBase
         $mailgun_domain = Settings::get('mailgun_domain');
         $api_key = Settings::get('api_key');
       }
-      $validator = Validator::make(post(), $this->formValidationRules);
-      if ($validator->fails()) {
-        throw new ValidationException($validator);
-      }
       $mgClient = new Mailgun($api_key);
       $listAddress = Settings::get('maillist_title') . '@' . $mailgun_domain;
       $result = $mgClient->post("lists/" . $listAddress . "/members", array(
           'address'     => post('email'),
           'subscribed'  => true,
-          'name'        => ucwords(str_replace('.', " ", explode('@', post('email'))[0])),
+          'name'        => ucwords(str_replace('.', " ", explode('@', $post_email)[0])),
           'upsert'      => 'yes'
       ));
-
-      $this->page["confirmation_text"] = Settings::instance()->confirmation_text ?: "You successfully subscribed to our maillist.";
-      return;
     }
 }
