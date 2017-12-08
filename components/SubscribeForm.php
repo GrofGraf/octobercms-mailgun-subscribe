@@ -68,9 +68,12 @@ class SubscribeForm extends ComponentBase
       return;
     }
 
-    public static function subscribe($post_email, $mailllist){
+    public static function subscribe($post_email, $mailllist, $name){
       if(!isset($maillist) || !$maillist){
         $maillist = Settings::get('maillist_title');
+      }
+      if(!isset($name) || !$name){
+        $name = ucwords(str_replace('.', " ", explode('@', $post_email)[0]));
       }
       if(Settings::get('mailgun_configuration')){
         $mailgun_domain = MailSetting::get('mailgun_domain');
@@ -84,7 +87,7 @@ class SubscribeForm extends ComponentBase
       $result = $mgClient->post("lists/" . $listAddress . "/members", array(
           'address'     => post('email'),
           'subscribed'  => true,
-          'name'        => ucwords(str_replace('.', " ", explode('@', $post_email)[0])),
+          'name'        => $name,
           'upsert'      => 'yes'
       ));
     }

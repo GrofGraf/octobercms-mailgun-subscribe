@@ -8,4 +8,6 @@
 1.0.4:
   - Maillist title parameter added to subscribe method
 1.0.5:
-  -Subscribe method made static
+  - Subscribe method made static
+1.0.5
+  - Added name parameter to subscribe method
