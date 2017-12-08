@@ -63,7 +63,7 @@ class SubscribeForm extends ComponentBase
       if ($validator->fails()) {
         throw new ValidationException($validator);
       }
-      $this->subscribe(post('email'));
+      $this->subscribe(post('email'), null, null);
       $this->page["confirmation_text"] = Settings::instance()->confirmation_text ?: "You successfully subscribed to our maillist.";
       return;
     }
