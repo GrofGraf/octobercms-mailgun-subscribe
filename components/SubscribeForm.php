@@ -68,7 +68,10 @@ class SubscribeForm extends ComponentBase
       return;
     }
 
-    public function subscribe($post_email){
+    public function subscribe($post_email, $mailllist=null){
+      if(!$maillist){
+        $maillist = Settings::get('maillist_title');
+      }
       if(Settings::get('mailgun_configuration')){
         $mailgun_domain = MailSetting::get('mailgun_domain');
         $api_key = MailSetting::get('mailgun_secret');
@@ -77,7 +80,7 @@ class SubscribeForm extends ComponentBase
         $api_key = Settings::get('api_key');
       }
       $mgClient = new Mailgun($api_key);
-      $listAddress = Settings::get('maillist_title') . '@' . $mailgun_domain;
+      $listAddress = $maillist . '@' . $mailgun_domain;
       $result = $mgClient->post("lists/" . $listAddress . "/members", array(
           'address'     => post('email'),
           'subscribed'  => true,
