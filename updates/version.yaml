@@ -5,5 +5,5 @@
   - Use default mailgun configuration if exists
 1.0.3:
   - onSubscribe method divided
-1.0.3:
+1.0.4:
   - Maillist title parameter added to subscribe method
