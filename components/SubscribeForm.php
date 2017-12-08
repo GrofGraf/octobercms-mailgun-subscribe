@@ -68,8 +68,8 @@ class SubscribeForm extends ComponentBase
       return;
     }
 
-    public function subscribe($post_email, $mailllist=null){
-      if(!$maillist){
+    public static function subscribe($post_email, $mailllist){
+      if(!isset($maillist) || !$maillist){
         $maillist = Settings::get('maillist_title');
       }
       if(Settings::get('mailgun_configuration')){

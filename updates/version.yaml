@@ -7,3 +7,5 @@
   - onSubscribe method divided
 1.0.4:
   - Maillist title parameter added to subscribe method
+1.0.5:
+  -Subscribe method made static
