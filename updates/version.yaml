@@ -9,5 +9,5 @@
   - Maillist title parameter added to subscribe method
 1.0.5:
   - Subscribe method made static
-1.0.5
+1.0.6:
   - Added name parameter to subscribe method
