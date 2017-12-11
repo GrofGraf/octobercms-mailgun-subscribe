@@ -18,6 +18,21 @@ tabs:
       type: switch
       default: 1
       tab: Mailgun
+    enable_auto_reply:
+      label: "Enable Auto-Reply"
+      comment: "Enable automatic reply email"
+      type: switch
+      tab: Auto-Reply
+    auto_reply_subject:
+      label: "Auto-Reply Subject"
+      comment: "Subject of automatic reply email"
+      type: text
+      tab: Auto-Reply
+    auto_reply_content:
+      label: "Auto-Reply Content"
+      comment: "Content of automatic reply email"
+      type: richeditor
+      tab: Auto-Reply
     mailgun_domain:
       label: 'Mailgun Domain'
       comment: 'Mailgun Domain Name (example: example.mailgun.com)'

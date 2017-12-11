@@ -8,6 +8,7 @@ use Mailgun\Mailgun;
 use Validator;
 use ValidationException;
 use System\Models\MailSetting;
+use Mail;
 /*use Lang;
 use Illuminate\Support\MessageBag;*/
 
@@ -63,12 +64,12 @@ class SubscribeForm extends ComponentBase
       if ($validator->fails()) {
         throw new ValidationException($validator);
       }
-      $this->subscribe(post('email'), null, null);
+      $this->subscribe(post('email'), null, null, Settings::get('enable_auto_reply'));
       $this->page["confirmation_text"] = Settings::instance()->confirmation_text ?: "You successfully subscribed to our maillist.";
       return;
     }
 
-    public static function subscribe($post_email, $mailllist, $name){
+    public static function subscribe($post_email, $mailllist, $name, $auto_reply){
       if(!isset($maillist) || !$maillist){
         $maillist = Settings::get('maillist_title');
       }
@@ -90,5 +91,12 @@ class SubscribeForm extends ComponentBase
           'name'        => $name,
           'upsert'      => 'yes'
       ));
+
+      if($auto_reply){
+        Mail::send('grofgraf.mailgunsubscribe::emails.subscription-information', array('auto_reply' => Settings::instance()->auto_reply_content), function($m){
+          $m->to(post('email'), post('name'))
+            ->subject(Settings::instance()->auto_reply_subject);
+        });
+      }
     }
 }

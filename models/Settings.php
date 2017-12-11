@@ -14,12 +14,16 @@ class Settings extends Model
     ];
 
     public $translatable = [
-      'confirmation_text'
+      'confirmation_text',
+      'auto_reply_subject',
+      'auto_reply_content'
     ];
 
     public $rules = [
       'maillist_title' => ['required'],
       'confirmation_text' => ['required'],
+      'auto_reply_subject' => ['required_if:enable_auto_reply,1'],
+      'auto_reply_content' => ['required_if:enable_auto_reply,1'],
       'mailgun_domain' => ['required_if:mailgun_configuration,0'],
       'api_key' => ['required_if:mailgun_configuration,0']
     ];

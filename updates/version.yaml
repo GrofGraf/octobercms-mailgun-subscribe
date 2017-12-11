@@ -12,4 +12,6 @@
 1.0.6:
   - Added name parameter to subscribe method
 1.0.7:
-  - minor fixes
+  - Minor fixes
+1.0.8:
+  - Automatic reply option
