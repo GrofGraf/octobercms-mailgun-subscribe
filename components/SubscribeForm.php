@@ -86,7 +86,7 @@ class SubscribeForm extends ComponentBase
       $mgClient = new Mailgun($api_key);
       $listAddress = $maillist . '@' . $mailgun_domain;
       $result = $mgClient->post("lists/" . $listAddress . "/members", array(
-          'address'     => post('email'),
+          'address'     => $post_email,
           'subscribed'  => true,
           'name'        => $name,
           'upsert'      => 'yes'
