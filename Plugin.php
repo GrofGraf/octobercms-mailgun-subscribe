@@ -105,4 +105,11 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
+    public function registerMailTemplates()
+    {
+        return [
+            'grofgraf.mailgunsubscribe::emails.subscription-information' => 'Mailgun Subscription Automatic Reply.',
+        ];
+    }
 }
