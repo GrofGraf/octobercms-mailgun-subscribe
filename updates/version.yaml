@@ -18,4 +18,6 @@
 1.0.9:
   - Registered email template
 1.1.0:
-  - Subscribe method email error fixed 
+  - Subscribe method email error fixed
+1.1.1:
+  - Registered permissions

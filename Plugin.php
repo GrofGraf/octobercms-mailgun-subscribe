@@ -62,12 +62,10 @@ class Plugin extends PluginBase
      */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
-
         return [
-            'grofgraf.mailgunsubscribe.some_permission' => [
+            'grofgraf.mailgunsubscribe.settings' => [
                 'tab' => 'MailgunSubscribe',
-                'label' => 'Some permission'
+                'label' => 'Menage mailgun subscription settings'
             ],
         ];
     }
