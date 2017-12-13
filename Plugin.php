@@ -99,7 +99,8 @@ class Plugin extends PluginBase
                 'category'    => 'Marketing',
                 'icon'        => 'icon-user-plus',
                 'class'       => 'GrofGraf\MailgunSubscribe\Models\Settings',
-                'order'       => 100
+                'order'       => 100,
+                'permissions' => ['grofgraf.mailgunsubscribe.settings']
             ]
         ];
     }
