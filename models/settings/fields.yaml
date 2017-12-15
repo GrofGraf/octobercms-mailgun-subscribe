@@ -18,6 +18,24 @@ tabs:
       type: switch
       default: 1
       tab: Mailgun
+    mailgun_domain:
+      label: 'Mailgun Domain'
+      comment: 'Mailgun Domain Name (example: example@mailgun.com)'
+      type: text
+      tab: Mailgun
+      trigger:
+        action: enable
+        field: mailgun_configuration
+        condition: unchecked
+    api_key:
+      label: 'Mailgun Api Key'
+      comment: 'Mailgun API KEY (example: key-2419421example1c22vc2c2)'
+      type: text
+      tab: Mailgun
+      trigger:
+        action: enable
+        field: mailgun_configuration
+        condition: unchecked
     enable_auto_reply:
       label: "Enable Auto-Reply"
       comment: "Enable automatic reply email"
@@ -33,23 +51,3 @@ tabs:
       comment: "Content of automatic reply email"
       type: richeditor
       tab: Auto-Reply
-    mailgun_domain:
-      label: 'Mailgun Domain'
-      comment: 'Mailgun Domain Name (example: example.mailgun.com)'
-      type: text
-      tab: Mailgun
-      disabled: true
-      trigger:
-        action: disable
-        field: mailgun_configuration
-        condition: checked
-    api_key:
-      label: 'Mailgun Api Key'
-      comment: 'Mailgun API KEY (example: key-2419421example1c22vc2c2)'
-      type: text
-      tab: Mailgun
-      disabled: true
-      trigger:
-        action: disable
-        field: mailgun_configuration
-        condition: checked

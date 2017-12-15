@@ -23,3 +23,5 @@
   - Registered permissions
 1.1.2:
   - Fixed permissions
+1.1.3:
+  - Fixed backend settings error

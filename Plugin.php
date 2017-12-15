@@ -65,7 +65,7 @@ class Plugin extends PluginBase
         return [
             'grofgraf.mailgunsubscribe.settings' => [
                 'tab' => 'MailgunSubscribe',
-                'label' => 'Menage mailgun subscription settings'
+                'label' => 'Manage mailgun subscription settings'
             ],
         ];
     }
